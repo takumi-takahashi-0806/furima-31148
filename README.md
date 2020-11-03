@@ -10,7 +10,7 @@
 | frist_name           | string   | null: false |
 | middle_name          | string   | null: false |
 | kanafrist_name       | string   | null: false |
-| kanamiddke_name      | string   | null: false |
+| kanamiddle_name      | string   | null: false |
 | birthday             | date     | null: false |
 
 ### Association
@@ -26,7 +26,7 @@
 | item_name          | string | null: false |
 | item_description   | string | null: false |
 | category_id        | integer| null: false |
-| Product_details_id | integer| null: false |
+| product_details_id | integer| null: false |
 | delivery_fee_id    | integer| null: false |
 | shipping_area_id   | integer| null: false |
 | shipping_days_id   | integer| null: false |
@@ -41,7 +41,7 @@
 
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
-| items  | references | foreign_key: true |
+| item   | references | foreign_key: true |
 
 
 ### Association
@@ -52,14 +52,15 @@
 
 ## shipping_address テーブル
 
-| Column        | Type     | Options     |
-| -------       | -------- | ------------|
-| postal_code   | string   | null: false |
-| prefectures   | integer  | null: false |
-| municipalities| string   | null: false |
-| address       | string   | null: false |
-| building      | string   |             |
-| phone_namber  | string   | null: false |
+| Column         | Type       | Options     |
+| -------        | --------   | ------------|
+| postal_code    | string     | null: false |
+| prefectures_id | integer    | null: false |
+| municipalities | string     | null: false |
+| address        | string     | null: false |
+| building       | string     |             |
+| phone_namber   | string     | null: false |
+| buy_item       | references | foreign_key: true |
 
 ### Association
 
