@@ -11,12 +11,12 @@
 | middle_name          | string   | null: false |
 | kanafrist_name       | string   | null: false |
 | kanamiddke_name      | string   | null: false |
-| birthday             | datetime | null: false |
+| birthday             | date     | null: false |
 
 ### Association
 
 - has_many :items
-- has_many :buy_item
+- has_many :buy_items
 
 
 ## items テーブル
@@ -25,11 +25,11 @@
 | ------ | ------    | -------------------- |
 | item_name          | string | null: false |
 | item_description   | string | null: false |
-| category           | integer| null: false |
-| Product_details    | integer| null: false |
-| delivery_fee       | integer| null: false |
-| shipping_area      | integer| null: false |
-| shipping_days      | integer| null: false |
+| category_id        | integer| null: false |
+| Product_details_id | integer| null: false |
+| delivery_fee_id    | integer| null: false |
+| shipping_area_id   | integer| null: false |
+| shipping_days_id   | integer| null: false |
 | price              | integer| null: false |
 
 ### Association
@@ -41,7 +41,7 @@
 
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
-| user   | references | foreign_key: true |
+| items  | references | foreign_key: true |
 
 
 ### Association
@@ -54,11 +54,11 @@
 
 | Column        | Type     | Options     |
 | -------       | -------- | ------------|
-| yubinbango    | integer  | null: false |
-| todoufuken    | integer  | null: false |
-| sichoson      | text     | null: false |
-| banchi        | integer  | null: false |
-| tatemono      | text     |             |
+| postal_code   | string   | null: false |
+| prefectures   | integer  | null: false |
+| municipalities| string   | null: false |
+| address       | string   | null: false |
+| building      | string   |             |
 | phone_namber  | string   | null: false |
 
 ### Association
