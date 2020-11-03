@@ -2,34 +2,27 @@
 
 ## users テーブル
 
-| Column               | Type     | Options     |
-| --------             | ------   | ----------- |
-| nickname             | string   | null: false |
-| email                | string   | null: false |
-| encrypted_password   | string   | null: false |
-| frist_name           | string   | null: false |
-| middle_name          | string   | null: false |
-| kanafrist_name       | string   | null: false |
-| kanamiddke_name      | string   | null: false |
-| birthday             | datetime | null: false |
+| Column    | Type     | Options     |
+| --------  | ------   | ----------- |
+| nickname  | string   | null: false |
+| email     | string   | null: false |
+| password  | string   | null: false |
+| fullname  | string   | null: false |
+| kana_name | string   | null: false |
+| birthday  | datetime | null: false |
 
 ### Association
 
 - has_many :items
-- has_many :buy_item
-
 
 ## items テーブル
 
 | Column | Type      | Options              |
 | ------ | ------    | -------------------- |
 | item_name          | string | null: false |
-| item_description   | string | null: false |
-| category           | integer| null: false |
-| Product_details    | integer| null: false |
-| delivery_fee       | integer| null: false |
-| shipping_area      | integer| null: false |
-| shipping_days      | integer| null: false |
+| item_description   | text   | null: false |
+| Product_details    | text   | null: false |
+| delivery           | string | null: false |
 | price              | integer| null: false |
 
 ### Association
@@ -39,27 +32,26 @@
 
 ## buy_item テーブル
 
-| Column | Type       | Options           |
-| ------ | ---------- | ----------------- |
-| user   | references | foreign_key: true |
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| user   | string     | null: false |
 
 
 ### Association
 
 - has_one :shipping_address
 - belongs_to :item
-- belongs_to :user
 
 ## shipping_address テーブル
 
 | Column        | Type     | Options     |
 | -------       | -------- | ------------|
 | yubinbango    | integer  | null: false |
-| todoufuken    | integer  | null: false |
+| todoufuken    | text     | null: false |
 | sichoson      | text     | null: false |
 | banchi        | integer  | null: false |
-| tatemono      | text     |             |
-| phone_namber  | string   | null: false |
+| tatemono      | text     | null: false |
+| tel_namber    | integer  | null: false |
 
 ### Association
 
