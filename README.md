@@ -23,14 +23,15 @@
 
 | Column | Type      | Options              |
 | ------ | ------    | -------------------- |
-| item_name          | string | null: false |
-| item_description   | string | null: false |
-| category_id        | integer| null: false |
-| product_details_id | integer| null: false |
-| delivery_fee_id    | integer| null: false |
-| shipping_area_id   | integer| null: false |
-| shipping_days_id   | integer| null: false |
-| price              | integer| null: false |
+| name               | string    | null: false |
+| description        | string    | null: false |
+| category_id        | integer   | null: false |
+| product_details_id | integer   | null: false |
+| delivery_fee_id    | integer   | null: false |
+| shipping_area_id   | integer   | null: false |
+| shipping_days_id   | integer   | null: false |
+| price              | integer   | null: false |
+| user               | references| foreign_key: true |
 
 ### Association
 
@@ -42,6 +43,8 @@
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
 | item   | references | foreign_key: true |
+| user   | references | foreign_key: true |
+
 
 
 ### Association
