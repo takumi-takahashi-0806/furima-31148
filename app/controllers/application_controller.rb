@@ -1,18 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-def new
-  @item = Item.new
-end
-
-def create
-  @item = Item.create(item_params)
-  if @item.save
-    redirect_to root_path
-  else
-    render :new
-  end
-end
 
 
 private

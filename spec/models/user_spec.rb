@@ -30,9 +30,9 @@ describe User do
         expect(another_user.errors.full_messages).to include("Email has already been taken")
       end
       it "passwordが空では登録できない" do
-        @user.email = ""
+        @user.password = ""
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email can't be blank")
+        expect(@user.errors.full_messages).to include("Password can't be blank")
       end
       it "passwordが5文字以下であれば登録できない" do
         @user.password = "00000"

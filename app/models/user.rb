@@ -11,11 +11,6 @@ class User < ApplicationRecord
          PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
          validates_format_of :password, with: PASSWORD_REGEX 
 
-         #パスワードは、確認用を含めて2回入力すること,パスワードとパスワード（確認用）、値の一致が必須であること
-         validates :password, confirmation: true
-         validates :password_confirmation, presence: true
-
-
          #全角（漢字・ひらがな・カタカナ）での入力が必須であること
         with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/} do
           validates :first_name
