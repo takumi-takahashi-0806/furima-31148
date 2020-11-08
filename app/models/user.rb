@@ -4,28 +4,19 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         # ニックネームが必須であること
-         validates :nickname, presence: true
+         with_options　presence: true do
+          validates :nickname
+          validates :birthday
+          validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/}
+          validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/}
+          validates :kanafirst_name, format: { with: /\A[ァ-ヶー－]+\z/}
+          validates :kanamiddle_name,format: { with: /\A[ァ-ヶー－]+\z/}
+         end
 
          # パスワードは、半角英数字混合での入力が必須であること
          PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
          validates_format_of :password, with: PASSWORD_REGEX 
-
-         #全角（漢字・ひらがな・カタカナ）での入力が必須であること
-        with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/} do
-          validates :first_name
-          validates :last_name
-        end
-         
-         #全角（カタカナ）での入力が必須であること
-        with_options presence: true, format: { with: /\A[ァ-ヶー－]+\z/} do
-          validates :kanafirst_name
-          validates :kanamiddle_name
-        end
-
-        #生年月日が必須であること
-         validates :birthday, presence: true
-
+        
          has_many :items
          has_many :buy_items
 end
