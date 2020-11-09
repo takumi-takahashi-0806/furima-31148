@@ -7,9 +7,9 @@
 | nickname             | string   | null: false |
 | email                | string   | null: false |
 | encrypted_password   | string   | null: false |
-| frist_name           | string   | null: false |
-| middle_name          | string   | null: false |
-| kanafrist_name       | string   | null: false |
+| first_name           | string   | null: false |
+| last_name            | string   | null: false |
+| kanafirst_name       | string   | null: false |
 | kanamiddle_name      | string   | null: false |
 | birthday             | date     | null: false |
 
