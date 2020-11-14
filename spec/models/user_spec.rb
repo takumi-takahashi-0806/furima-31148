@@ -43,7 +43,6 @@ describe User do
         @user.password = "0000a"
         @user.password_confirmation = "0000a"
         @user.valid?
-        binding.pry
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end
       it "passwordが存在してもpassword_confirmationが空では登録できない" do
