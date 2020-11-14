@@ -5,11 +5,6 @@ class ItemsController < ApplicationController
     @items = Item.all
     @items = Item.includes(:user).order("created_at DESC")
   end
-
-
-  def new
-    @item = Item.new
-  end
   
   def create
     @item = Item.new(item_params)
