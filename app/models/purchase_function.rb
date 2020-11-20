@@ -9,9 +9,9 @@ class PurchaseFunction
     validates :postal_code
     validates :municipalities
     validates :address
-    validates :building
     validates :phone_number
     validates :token
+    validates :shipping_area_id
     end
   
   with_options numericality: { other_than: 1 } do

@@ -28,6 +28,11 @@ describe PurchaseFunction do
         @purchase_function.valid?
         expect(@purchase_function.errors.full_messages).to include("Shipping area must be other than 1")
       end
+      it "shipping_area_idが空だと登録できない" do
+        @purchase_function.shipping_area_id = ""
+        @purchase_function.valid?
+        expect(@purchase_function.errors.full_messages).to include("Shipping area can't be blank")
+      end
       it "municipalitiesが空だと登録できない" do
         @purchase_function.municipalities = ""
         @purchase_function.valid?
@@ -37,11 +42,6 @@ describe PurchaseFunction do
         @purchase_function.address = ""
         @purchase_function.valid?
         expect(@purchase_function.errors.full_messages).to include("Address can't be blank")
-      end
-      it "buildingが空だと登録できない" do
-        @purchase_function.building = ""
-        @purchase_function.valid?
-        expect(@purchase_function.errors.full_messages).to include("Building can't be blank")
       end
       it "phone_numberが空だと登録できない" do
         @purchase_function.phone_number = ""
