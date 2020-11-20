@@ -10,10 +10,6 @@ FactoryBot.define do
     price               {1000}
     association :user
   
-  #アクティブハッシュの定義の仕方（DB参考）済み
-  #user_id...アソシエーション　テストコード見直し 済み
-  #image...active_storage　chatapp　できてる
-
   after(:build) do |item|
     item.image.attach(io: File.open('public/test_image.png'), filename: 'test_image.png')
   end
